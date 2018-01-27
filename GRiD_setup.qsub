@@ -1,9 +1,6 @@
-#!/bin/bash
- 				
-#PBS -l walltime=1:00:00 
-module load R/3.2.3
-export R_LIBS=/data/emiola/R_packages/
+#!/bin/bash 
 
+module load R/3.2.3
 module load gcc/7.1.0
 module load samtools
 module load bedtools
@@ -16,7 +13,7 @@ BOWTIE_INDEX="/path/to/bowtie index" #path to bowtie index of genome
 OUTPUT_DIR="/path/to/output/directory" #output directory
 
 cd $READS_DIR
-ls *_1.fastq | rev | cut -d'_' -f2- | rev > reads.txt # Assumes reads are paired-end ending with "_1.fastq and _2.fastq, respectively"
+ls *_1.fastq | rev | cut -d'_' -f2- | rev > reads.txt # Assumes reads are paired, ending with "_1.fastq and _2.fastq, respectively"
 
 for i in `cat reads.txt`
 do
