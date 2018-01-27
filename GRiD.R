@@ -103,7 +103,7 @@ fit <- na.omit(fit)
    GRiD2<-(2^ori)/(2^ter)
    maxF<-max(fit)
    minF<-min(fit)
-   #GRiD_unrefined2 <- (2^maxF)/(2^minF)
+   
 GRiD_rounded2 <-round(GRiD2, 2)
 if(GRiD_rounded2 < 1){
 GRiD_rounded2 <- 1.00
@@ -139,7 +139,7 @@ fit <- na.omit(fit)
    GRiD3<-(2^ori)/(2^ter)
    maxF<-max(fit)
    minF<-min(fit)
-   #GRiD_unrefined3 <- (2^maxF)/(2^minF)
+   
 GRiD_rounded3 <-round(GRiD3, 2)
 if(GRiD_rounded3 < 1){
 GRiD_rounded3 <- 1.00
