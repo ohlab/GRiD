@@ -1,11 +1,12 @@
 #!/bin/bash 
-
-module load R/3.2.3
-module load gcc/7.1.0
-module load samtools
-module load bedtools
-module load bowtie2
-module load seqtk
+# Lines 4 to 9 sets the environment variables to enable access to the respective software packages.
+# If these packages are installed locally, they can be added to the PATH environment variable using PATH=$PATH:/path/to/software/folder
+module load R  # tested using version 3.2.3
+module load gcc  # tested using version 7.1.0
+module load samtools # tested using version 1.5
+module load bedtools # tested using version 2.26.0
+module load bowtie2 # tested using version 2.3.1
+module load seqtk #tested using version 1.0-r31
 
 GRID_DIR="/path/to/GRiD files" #GRiD scripts directory
 READS_DIR="/path/to/reads" #Fastq reads directory
