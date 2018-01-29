@@ -8,11 +8,11 @@ REQUIREMENTS
     getopt
     ggplot2
     gsubfn
-- bowtie2
-- seqtk
-- samtools
+- bowtie2 (tested using v 2.3.1)
+- seqtk (tested using v 1.0-r31)
+- samtools (tested using v 1.5)
 - gcc (tested using v 7.1.0)
-- bedtools
+- bedtools (tested using v 2.26.0)
     
 
 USAGE
@@ -21,7 +21,7 @@ Download "GRiD_setup.qsub" and "GRiD.R" files
 
 Edit the file "GRiD_setup.qsub" and specify paths to your Reads directory, output directory, GRiD scripts directory, and finally, bowtie2 index file of genome. Submit the qsub file.
 
-NOTE: The script assumes reads are paired-end and annotated as name_1.fastq and name_2.fastq, respectively. If delimiter separating reads isn't the underscore symbol, modify lines 16 and 20 accordingly. Likewise, if using unpaired reads, edit the bowtie2 commands (lines 16 - 30).
+NOTE: The script assumes reads are paired-end and annotated as name_1.fastq and name_2.fastq, respectively. If delimiter separating reads isn't the underscore symbol, modify lines 17 and 21 accordingly. Likewise, if using unpaired reads, edit the bowtie2 commands (lines 17 - 31). Also, the script was designed for Portable Batch Systems (PBS), but the can be called locally like any other bash script. 
 
 OUTPUT
 
