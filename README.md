@@ -21,7 +21,7 @@ Download "GRiD_setup.qsub" and "GRiD.R" files
 
 Edit the file "GRiD_setup.qsub" and specify paths to your Reads directory, output directory, GRiD scripts directory, and finally, bowtie2 index file of genome. Submit the qsub file.
 
-NOTE: The script assumes reads are paired-end and annotated as name_1.fastq and name_2.fastq, respectively. If delimiter separating reads isn't the underscore symbol, modify lines 17 and 21 accordingly. Likewise, if using unpaired reads, edit the bowtie2 commands (lines 17 - 31). Also, the script was designed for Portable Batch Systems (PBS), but the can be called locally like any other bash script. 
+NOTE: The script assumes reads are paired-end and annotated as name_1.fastq and name_2.fastq, respectively. If delimiter separating reads isn't the underscore symbol, modify lines 17 and 21 accordingly. Likewise, if using unpaired reads, edit the bowtie2 commands (lines 17 - 31). Also, the script was designed for Portable Batch Systems (PBS), but can be called locally like any other bash script. 
 
 OUTPUT
 
