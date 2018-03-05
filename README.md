@@ -4,10 +4,10 @@ Growth Rate Index (GRiD) measures bacterial growth rate from draft genomes and m
 REQUIREMENTS
 - R (tested using v 3.2.3) 
     - Required R libraries - 
-    dplyr
-    getopt
-    ggplot2
-    gsubfn
+    dplyr,
+    getopt,
+    ggplot2,
+    gsubfn,
 - bowtie2 (tested using v 2.3.1)
 - seqtk (tested using v 1.0-r31)
 - samtools (tested using v 1.5)
