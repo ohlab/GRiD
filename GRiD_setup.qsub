@@ -46,7 +46,7 @@ rm $FILE.sorted.bam
 
 awk -F"\t" '{obj1[$1]+=$3;++obj2[$1]}END{for (key in obj1) print key"\011"obj1[key]/obj2[key]}' $FILE.txt | sort -nr -k2,2 > $FILE.filtered_scaffold_coverage.txt
 
-#split contigs to two twmporary files
+#split contigs to two temporary files
 sed -n 2~2p $FILE.filtered_scaffold_coverage.txt | sort -n -k2,2 > $FILE.evenfile.txt #important to re-sort one of either files
 sed -n 1~2p $FILE.filtered_scaffold_coverage.txt > $FILE.oddfile.txt
 
