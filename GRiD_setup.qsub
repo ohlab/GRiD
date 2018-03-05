@@ -73,5 +73,5 @@ rm $i.main.sam.reorganized.txt
 rm $i.MAP.mate.2.fastq
 rm $i.MAP.mate.1.fastq
 rm lengths.genome
-rm $READS_DIR/reads.txt
 done
+rm $READS_DIR/reads.txt
