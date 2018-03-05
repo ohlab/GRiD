@@ -65,7 +65,11 @@ rm $FILE.filtered_scaffold_coverage.txt
 rm $FILE.txt
 done
 
-Rscript $GRID_DIR/GRiD.R -i $i.main.sam.reorganized.txt -x $i.sub1.sam.reorganized.txt -y $i.sub2.sam.reorganized.txt -o $i.pdf -p $i.GRiD.txt
+base_cov=$(awk '{ sum+=$3} END {print sum}' $i.main.sam.reorganized.txt)
+total_genome_length=$(grep -c "." $i.main.sam.reorganized.txt)
+coverage=$(echo "scale=3; $base_cov/$total_genome_length" |bc )
+
+Rscript $GRID_DIR/GRiD.R -i $i.main.sam.reorganized.txt -x $i.sub1.sam.reorganized.txt -y $i.sub2.sam.reorganized.txt -o $i.pdf -p $i.GRiD.txt -c $coverage
 
 rm $i.sub*
 rm $i.*.sam
