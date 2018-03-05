@@ -27,4 +27,4 @@ OUTPUT
 
 Two output files are generated
 - A plot (.pdf) showing coverage information across the genome 
-- A table of results (.txt) displaying growth rate (GRiD), 95% confidence interval, unrefined GRiD value, and species heterogeneity. Species heterogeneity is a metric estimating the degree to which closely related species contributes to variance in growth predictions. 
+- A table of results (.txt) displaying growth rate (GRiD), 95% confidence interval, unrefined GRiD value, species heterogeneity, and genome coverage. Species heterogeneity is a metric estimating the degree to which closely related species contributes to variance in growth predictions. 
