@@ -3,13 +3,14 @@ library(getopt)
 library(ggplot2)
 library(gsubfn)
 
-spec = matrix(c('cfile','i',1,"character",'cfile2','x',1,"character",'cfile3','y',1,"character",'npdf','o',1,"character",'pfix','p',1,"character"),byrow=TRUE,ncol=4)
+spec = matrix(c('cfile','i',1,"character",'cfile2','x',1,"character",'cfile3','y',1,"character",'npdf','o',1,"character",'pfix','p',1,"character",'cov','c',1,"double"),byrow=TRUE,ncol=4)
 opt=getopt(spec)
 inputfile <- opt$cfile
 inputfile2 <- opt$cfile2
 inputfile3 <- opt$cfile3
 image <- opt$npdf
 prefix <- opt$pfix
+coverage <- opt$cov
 title<-strapplyc(prefix, "(.*)....", simplify = TRUE)
 
 slidingwindowplot <- function(windowsize, inputseq)
@@ -162,8 +163,9 @@ species_heterogeneity <- (1-(GRiD_rounded/GRiD_unrefined))
 var1 <- paste(GRiD_CI_lower," - ",GRiD_CI_upper, sep="")
 image_title<-paste(title, " =", GRiD_rounded, ", 95% CI = ", var1, sep = ' ')
 
-merge_data <- paste(title, GRiD_rounded, var1, GRiD_unrefined, species_heterogeneity, sep = '\t')
-colname<-paste("Sample","GRiD","95% CI","GRiD unrefined","Species heterogeneity", sep = '\t')
+merge_data <- paste(title, GRiD_rounded, var1, GRiD_unrefined, species_heterogeneity, coverage, sep = '\t')
+colname<-paste("Sample","GRiD","95% CI","GRiD unrefined","Species heterogeneity","Coverage", sep = '\t')
+
 output_results <- rbind(colname,merge_data)
 
 write(output_results, file = prefix)
