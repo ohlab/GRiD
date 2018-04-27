@@ -32,11 +32,16 @@ Add the above dependencies to your PATH enivironment. For instance, to add Patho
 `$ source ~/.bash_profile`  
 
 Additionally, if you do not have root access, R libraries can be installed locally. But first, create a directory to store all your R libraries and run the commands below
-`$ echo 'R_LIBS_USER="/path/to/R_libraries/directory/"' >>  $HOME/.Renviron
--- Fire up an R session to install a library. e.g ggplot2
-$ R
-install.packages("ggplot2", lib="/path/to/R_libraries/directory/")
-quit()`
+
+`$ echo 'R_LIBS_USER="/path/to/R_libraries/directory/"' >>  $HOME/.Renviron`
+
+`-- Fire up an R session to install a library. e.g ggplot2`
+
+`$ R`
+
+`install.packages("ggplot2", lib="/path/to/R_libraries/directory/")`
+
+`quit()`
 
 
 # USAGE
