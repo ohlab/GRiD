@@ -26,15 +26,15 @@ GRiD algorithm consists of two modules;
 - Pathoscope2    
 
 Add the above dependencies to your PATH enivironment. For instance, to add Pathoscope2 to your PATH, run the following commands
-    echo 'export PATH=/path/to/pathoscope2/folder:$PATH' >> ~/.bash_profile
-    source ~/.bash_profile  
+`$ echo 'export PATH=/path/to/pathoscope2/folder:$PATH' >> ~/.bash_profile
+ $ source ~/.bash_profile`  
 
 Additionally, if you do not have root access, R libraries can be installed locally. But first, create a directory to store all your R libraries and run the commands below
-$ echo 'R_LIBS_USER="/path/to/R_libraries/directory/"' >>  $HOME/.Renviron
+`$ echo 'R_LIBS_USER="/path/to/R_libraries/directory/"' >>  $HOME/.Renviron
 -- Fire up an R session to install a library. e.g ggplot2
-R
+$ R
 install.packages("ggplot2", lib="/path/to/R_libraries/directory/")
-quit()
+quit()`
 
 
 # USAGE
@@ -86,12 +86,10 @@ The database can be updated with metagenomic bins or newly sequenced bacterial g
 NOTE: bacteria genomes must be in fasta format and must have either .fasta, .fa or .fna extensions.
 
 # OUTPUT
-`single` module
-Two output files are generated
+`single module` - two output files are generated
 - A plot (.pdf) showing coverage information across the genome 
 - A table of results (.txt) displaying growth rate (GRiD), 95% confidence interval, unrefined GRiD value, species heterogeneity, genome coverage, dnaA/ori ratio, and ter/dif ratio. Species heterogeneity is a metric estimating the degree to which closely related strains/species contributes to variance in growth predictions (range between 0 - 1 where 0 indicate no heterogeneity). In most bacteria genomes, dnaA is located in close proximity to the ori whereas replication typically terminates at/near dif sequence. Thus, the closer dnaA/ori and ter/dif ratios are to one, the more likely the accuracy of GRiD scores.  
 
-`multiplex` module
-Two output files are generated per sample
+`multiplex module` - two output files are generated per sample
 - A heatmap (.pdf), displaying growth rate (GRiD) from genomes above the coverage cutoff with hierachical clustering. 
 - A table of results (.txt) displaying growth rate (GRiD) of genomes above the coverage cutoff, unrefined GRiD value, species heterogeneity, and genome coverage. If -m flag is set, all tables will be merged into a single matrix file called "merged_table.txt".
