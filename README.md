@@ -26,8 +26,8 @@ GRiD algorithm consists of two modules;
 - Pathoscope2    
 
 Add the above dependencies to your PATH enivironment. For instance, to add Pathoscope2 to your PATH, run the following commands
-`$ echo 'export PATH=/path/to/pathoscope2/folder:$PATH' >> ~/.bash_profile
- $ source ~/.bash_profile`  
+`$ echo 'export PATH=/path/to/pathoscope2/folder:$PATH' >> ~/.bash_profile`
+`$ source ~/.bash_profile`  
 
 Additionally, if you do not have root access, R libraries can be installed locally. But first, create a directory to store all your R libraries and run the commands below
 `$ echo 'R_LIBS_USER="/path/to/R_libraries/directory/"' >>  $HOME/.Renviron
