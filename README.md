@@ -26,15 +26,15 @@ GRiD algorithm consists of two modules;
 - Pathoscope2    
 
 Add the above dependencies to your PATH enivironment. For instance, to add Pathoscope2 to your PATH, run the following commands
-$ echo 'export PATH=/path/to/pathoscope2/folder:$PATH' >> ~/.bash_profile
-$ source ~/.bash_profile  
+    echo 'export PATH=/path/to/pathoscope2/folder:$PATH' >> ~/.bash_profile
+    source ~/.bash_profile  
 
 Additionally, if you do not have root access, R libraries can be installed locally. But first, create a directory to store all your R libraries and run the commands below
 $ echo 'R_LIBS_USER="/path/to/R_libraries/directory/"' >>  $HOME/.Renviron
 -- Fire up an R session to install a library. e.g ggplot2
-$ R
-> install.packages("ggplot2", lib="/path/to/R_libraries/directory/")
-> quit()
+R
+install.packages("ggplot2", lib="/path/to/R_libraries/directory/")
+quit()
 
 
 # USAGE
@@ -43,8 +43,7 @@ $ R
     ./grid.sh single <options>       GRiD using a single genome
     ./grid.sh multiplex <options>    GRiD high throughput
 
-
-   ./grid.sh single <options>
+    ./grid.sh single <options>
     <options>
     -r      Reads directory (single end reads)
     -o      Output directory
@@ -53,7 +52,7 @@ $ R
             for analysis [default = analyze all samples in reads directory]
     -h      Display this message
 
-   ./grid.sh multiplex <options>
+    ./grid.sh multiplex <options>
     <options>
     -r         Reads directory (single end reads)
     -o         Output directory
