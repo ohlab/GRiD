@@ -6,7 +6,7 @@ GRiD algorithm consists of two modules;
 1. < single > - which is applicable for growth analysis involving a single reference genome
 2. < multiplex > - for the high-throughput growth analysis of all characterized bacteria in a sample. Prior knowledge of microbial composition is not required. To use this module, download the GRiD database, consisting of 32,819 representative bacteria genomes, from ftp://ftp.jax.org/ohlab/Index/   
 
-REQUIREMENTS
+# REQUIREMENTS
 - R (tested using v 3.2.3) 
     - Required R libraries - 
     dplyr,
@@ -31,13 +31,13 @@ $ source ~/.bash_profile
 
 Additionally, if you do not have root access, R libraries can be installed locally. But first, create a directory to store all your R libraries and run the commands below
 $ echo 'R_LIBS_USER="/path/to/R_libraries/directory/"' >>  $HOME/.Renviron
-# Fire up an R session to install a library. e.g ggplot2
+-- Fire up an R session to install a library. e.g ggplot2
 $ R
 > install.packages("ggplot2", lib="/path/to/R_libraries/directory/")
 > quit()
 
 
-USAGE
+# USAGE
 
     ./grid.sh -h                     Display this help message.
     ./grid.sh single <options>       GRiD using a single genome
@@ -71,7 +71,7 @@ NOTE: Samples must be in single-end format. If samples are only available in pai
 
 For the 'multiplex' module, reads mapping to multiple genomes are reassigned using Pathoscope 2 when the -p flag is set. The degree to which reads are reassigned is set by the -t (theta prior) flag. The theta prior value represents the number of non-unique reads that are not subject to reassignment. Finally, when the coverage cutoff (-c flag) is set below 1, only genomes with fragmentation levels below 90 fragments/Mbp are analyzed (see xxx et al. for more details). 
 
-## Updating GRiD database ##
+# Updating GRiD database 
 The database can be updated with metagenomic bins or newly sequenced bacterial genomes by running the update_database.sh script (requires bowtie2).
  
 
@@ -86,7 +86,7 @@ The database can be updated with metagenomic bins or newly sequenced bacterial g
 
 NOTE: bacteria genomes must be in fasta format and must have either .fasta, .fa or .fna extensions.
 
-OUTPUT
+# OUTPUT
 `single` module
 Two output files are generated
 - A plot (.pdf) showing coverage information across the genome 
