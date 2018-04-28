@@ -4,7 +4,7 @@ Growth Rate Index (GRiD) measures bacterial growth rate from reference genomes (
 GRiD algorithm consists of two modules;
 
 1. < single > - which is applicable for growth analysis involving a single reference genome
-2. < multiplex > - for the high-throughput growth analysis of all characterized bacteria in a sample. Prior knowledge of microbial composition is not required. To use this module, download the GRiD database, consisting of 32,819 representative bacteria genomes, from ftp://ftp.jax.org/ohlab/Index/   
+2. < multiplex > - for the high-throughput growth analysis of all characterized bacteria in a sample. Prior knowledge of microbial composition is not required. To use this module, download the GRiD database, consisting of 32,819 representative bacteria genomes, from #ftp://ftp.jax.org/ohlab/Index/   
 
 # REQUIREMENTS
 - R (tested using v 3.2.3) 
