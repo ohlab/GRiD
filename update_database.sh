@@ -1,5 +1,4 @@
 #!/bin/bash
-module load bowtie2
 
 LIST=false
 while getopts ":g:d:n:l:h" opt; do
