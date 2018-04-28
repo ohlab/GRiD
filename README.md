@@ -13,7 +13,7 @@ GRiD algorithm consists of two modules;
     getopt,
     ggplot2,
     gsubfn,
-    glots
+    gplots
     
 - bowtie2 (tested using v 2.3.1)
 - seqtk (tested using v 1.0-r31)
@@ -39,9 +39,9 @@ Additionally, if you do not have root access, R libraries can be installed local
 
 `$ R`
 
-`install.packages("ggplot2", lib="/path/to/R_libraries/directory/")`
+`> install.packages("ggplot2", lib="/path/to/R_libraries/directory/")`
 
-`quit()`
+`> quit()`
 
 
 # USAGE
