@@ -4,7 +4,7 @@ Growth Rate Index (GRiD) measures bacterial growth rate from reference genomes (
 GRiD algorithm consists of two modules;
 
 1. < single > - which is applicable for growth analysis involving a single reference genome
-2. < multiplex > - for the high-throughput growth analysis of all characterized bacteria in a sample. Prior knowledge of microbial composition is not required. To use this module, download the GRiD database, consisting of 32,819 representative bacteria genomes, from #ftp://ftp.jax.org/ohlab/Index/   
+2. < multiplex > - for the high-throughput growth analysis of all characterized bacteria in a sample. Prior knowledge of microbial composition is not required. To use this module, download the GRiD database, consisting of 32,819 representative bacteria genomes, from **ftp://ftp.jax.org/ohlab/Index/**   
 
 # REQUIREMENTS
 - R (tested using v 3.2.3) 
@@ -73,9 +73,9 @@ Additionally, if you do not have root access, R libraries can be installed local
     -h         Display this message
 
 
-NOTE: Samples must be in single-end format. If samples are only available in paired-end format, use either of the mate pairs, or concatenate both pairs into a single fastq file. In addition, reads must have the .fastq extension (and not .fq). Using either modules, the default is to analyze all samples present in the reads directory. However, analysis can be restricted to a subset of samples by using the -l flag and specifying a file that lists the subset of samples.    
+**NOTE: Samples must be in single-end format**. If samples are only available in paired-end format, use either of the mate pairs, or concatenate both pairs into a single fastq file. In addition, reads must have the .fastq extension (and not .fq). Using either modules, the default is to analyze all samples present in the reads directory. However, analysis can be restricted to a subset of samples by using the -l flag and specifying a file that lists the subset of samples.    
 
-For the 'multiplex' module, reads mapping to multiple genomes are reassigned using Pathoscope 2 when the -p flag is set. The degree to which reads are reassigned is set by the -t (theta prior) flag. The theta prior value represents the number of non-unique reads that are not subject to reassignment. Finally, when the coverage cutoff (-c flag) is set below 1, only genomes with fragmentation levels below 90 fragments/Mbp are analyzed (see xxx et al. for more details). 
+For the 'multiplex' module, reads mapping to multiple genomes are reassigned using Pathoscope 2 when the -p flag is set. The degree to which reads are reassigned is set by the -t (theta prior) flag. The theta prior value represents the number of non-unique reads that are not subject to reassignment. Finally, when the coverage cutoff (-c flag) is set below 1, only genomes with fragmentation levels below 90 fragments/Mbp are analyzed (see xxx et al. for more details). **Note that to use the 'multiplex' module, you must have downloaded the GRiD database from ftp://ftp.jax.org/ohlab/Index/ **.
 
 # Updating GRiD database 
 The database can be updated with metagenomic bins or newly sequenced bacterial genomes by running the update_database.sh script (requires bowtie2).
@@ -95,7 +95,7 @@ NOTE: bacteria genomes must be in fasta format and must have either .fasta, .fa 
 # OUTPUT
 `single module` - two output files are generated
 - A plot (.pdf) showing coverage information across the genome 
-- A table of results (.txt) displaying growth rate (GRiD), 95% confidence interval, unrefined GRiD value, species heterogeneity, genome coverage, dnaA/ori ratio, and ter/dif ratio. Species heterogeneity is a metric estimating the degree to which closely related strains/species contributes to variance in growth predictions (range between 0 - 1 where 0 indicate no heterogeneity). In most bacteria genomes, dnaA is located in close proximity to the ori whereas replication typically terminates at/near dif sequence. Thus, the closer dnaA/ori and ter/dif ratios are to one, the more likely the accuracy of GRiD scores.  
+- A table of results (.txt) displaying growth rate (GRiD), 95% confidence interval, unrefined GRiD value, species heterogeneity, genome coverage, *dnaA/ori* ratio, and *ter/dif* ratio. Species heterogeneity is a metric estimating the degree to which closely related strains/species contributes to variance in growth predictions (range between 0 - 1 where 0 indicate no heterogeneity). In most bacteria genomes, *dnaA* is located in close proximity to the *ori* whereas replication typically terminates at/near *dif* sequence. Thus, the closer *dnaA/ori* and *ter/dif* ratios are to one, the more likely the accuracy of GRiD scores.  
 
 `multiplex module` - two output files are generated per sample
 - A heatmap (.pdf), displaying growth rate (GRiD) from genomes above the coverage cutoff with hierachical clustering. 
