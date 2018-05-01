@@ -43,6 +43,11 @@ Additionally, if you do not have root access, R libraries can be installed local
 
 `> quit()`
 
+Finally, add execution permissions for the GRiD scripts
+
+`chmod +x /path/to/GRiD-master/grid.sh`
+
+`chmod +x /path/to/GRiD-master/update_database.sh`
 
 # USAGE
 
