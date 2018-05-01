@@ -43,7 +43,7 @@ Additionally, if you do not have root access, R libraries can be installed local
 
 `> quit()`
 
-Finally, add execution permissions for the GRiD scripts
+Finally, add execute permissions for the GRiD scripts
 
 `chmod +x /path/to/GRiD-master/grid.sh`
 
