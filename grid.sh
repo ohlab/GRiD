@@ -273,7 +273,7 @@ cat $LIS | rev | cut -d'.' -f2- | rev > reads.txt
 fi
 for i in `cat reads.txt`
 do
-bowtie2 -x bowtie_$ref_genome -U $i.fastq --very-sensitive -S $ODR/$i.main.sam --al $ODR/$i.MAP.fastq
+bowtie2 -x $ODR/bowtie_$ref_genome -U $i.fastq --very-sensitive -S $ODR/$i.main.sam --al $ODR/$i.MAP.fastq
 
 cd $ODR
 # subsample 85% of mapped reads twice 
