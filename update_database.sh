@@ -95,7 +95,7 @@ fi
 for f in `cat grid_database_genomes.txt` 
 do
 name=$(ls "$f" | rev | cut -d'.' -f2- | rev)
-sed '1d' $f | sed "s/>.*/$(printf '%.0sN' {0..100})/g" | tr -d '\n' | sed "1 i\> $name" > grid_database_$f
+sed '1d' $f | sed "s/>.*/$(printf '%.0sN' {0..100})/g" | tr -d '\n' | sed "1 i\>$name" > grid_database_$f
 done
 rm grid_database_genomes.txt
 
@@ -115,7 +115,7 @@ fi
 for f in `cat $LIS`
 do
 name=$(ls "$f" | rev | cut -d'.' -f2- | rev)
-sed '1d' $f | sed "s/>.*/$(printf '%.0sN' {0..100})/g" | tr -d '\n' | sed "1 i\> $name" > grid_database_$f
+sed '1d' $f | sed "s/>.*/$(printf '%.0sN' {0..100})/g" | tr -d '\n' | sed "1 i\>$name" > grid_database_$f
 done
 fi
 ###########################################
