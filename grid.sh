@@ -267,11 +267,11 @@ dif_start=$(sort -nr -k12,12 dif.txt | head -1 | cut -f7)
 
 cd $RDR
 if [ "$LIST" == "false" ]; then
-ls *.fastq | rev | cut -d'.' -f2- | rev > reads.txt
+ls *.fastq | rev | cut -d'.' -f2- | rev > readsforgrid.txt
 else
-cat $LIS | rev | cut -d'.' -f2- | rev > reads.txt
+cat $LIS | rev | cut -d'.' -f2- | rev > readsforgrid.txt
 fi
-for i in `cat reads.txt`
+for i in `cat readsforgrid.txt`
 do
 bowtie2 -x $ODR/bowtie_$ref_genome -U $i.fastq --very-sensitive -S $ODR/$i.main.sam --al $ODR/$i.MAP.fastq
 
@@ -338,7 +338,7 @@ done
 rm dnaa.txt
 rm dif.txt
 rm bowtie_$ref_genome*bt2
-rm $RDR/reads.txt
+rm $RDR/readsforgrid.txt
 else
 ######################################
 #####################################
@@ -358,12 +358,12 @@ echo "coverage cutoff is $COV_CUTOFF"
 
 cd $RDR
 if [ "$LIST" == "false" ]; then
-ls *.fastq | rev | cut -d'.' -f2- | rev > reads.txt
+ls *.fastq | rev | cut -d'.' -f2- | rev > readsforgrid.txt
 else
-cat $LIS | rev | cut -d'.' -f2- | rev > reads.txt
+cat $LIS | rev | cut -d'.' -f2- | rev > readsforgrid.txt
 fi
 
-for i in `cat reads.txt`
+for i in `cat readsforgrid.txt`
 do
 
 for BOWTIE in `cat $DBR/bowtie.txt`
@@ -509,7 +509,7 @@ Rscript $GRID_DIR/GRiD_multiplex_tree.R -i $i.GRiD.txt -o $i.GRiD.pdf
 
 cd $RDR
 done
-rm $RDR/reads.txt
+rm $RDR/readsforgrid.txt
 fi
 ################## merge option ####################
 cd $ODR
