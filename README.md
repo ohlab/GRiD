@@ -27,7 +27,7 @@ GRiD algorithm consists of two modules;
 
 Add the above dependencies to your PATH enivironment. For instance, to add Pathoscope2 to your PATH, run the following commands
 
-`$ echo 'export PATH=/path/to/pathoscope2/folder:$PATH' >> ~/.bash_profile`
+`$ echo 'export PATH=/path/to/pathoscope2.py/folder:$PATH' >> ~/.bash_profile`
 
 `$ source ~/.bash_profile`  
 
