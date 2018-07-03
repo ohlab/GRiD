@@ -1,7 +1,7 @@
 #!/bin/bash
 
 package=""  # Default to empty package
-GRID_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+GRID_DIR="$( cd "$( dirname "$(readlink -f ${BASH_SOURCE[0]})" )" && pwd )"
 WDR=$(pwd)
 
 while getopts ":h" opt; do
