@@ -9,7 +9,7 @@ GRiD algorithm consists of two modules;
 # INSTALLATION
 The easiest way to install GRiD is through bioconda which resolves all required dependencies.
 
-`conda install GRiD`
+`conda install grid`
 
 Add execute permissions for the GRiD scripts
 
