@@ -9,7 +9,7 @@ GRiD algorithm consists of two modules;
 # INSTALLATION
 The easiest way to install GRiD is through bioconda which resolves all required dependencies.
 
-conda install GRiD
+`conda install GRiD`
 
 Add execute permissions for the GRiD scripts
 
@@ -66,13 +66,13 @@ For the 'multiplex' module, reads mapping to multiple genomes are reassigned usi
 
 
 # Example test
-The test sample contain reads from Staphylococcus epidermids, Lactobacillus gasseri, and Campylobacter upsaliensis, each with a coverage of ~ 0.5.
+The test sample contain reads from *Staphylococcus epidermids*, *Lactobacillus gasseri*, and *Campylobacter upsaliensis*, each with a coverage of ~ 0.5.
 
-cd GRiD-master/test
-< single >
+`cd GRiD-master/test
+
 ../grid.sh single -r . -g S_epidermidis.LRKNS118.fna -n 16
-< multiplex >
-../grid.sh multiplex -r . -d . -p -c 0.2 -n 16
+
+../grid.sh multiplex -r . -d . -p -c 0.2 -n 16`
 
 For each module, a pdf and a text file is generated.
 
