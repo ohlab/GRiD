@@ -108,6 +108,6 @@ NOTE: bacteria genomes must be in fasta format and must have either .fasta, .fa 
 - gcc (tested using v 7.1.0)
 - bedtools (tested using v 2.26.0)
 - bamtools (tested using v 1.0.2)
-- usearch (tested using v 8.0)
+- blast (tested using v 2.6.0)
 - python (tested using v 2.7.3)
 - Pathoscope2    
