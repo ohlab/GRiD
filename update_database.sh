@@ -1,5 +1,5 @@
 #!/bin/bash
-GRID_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+GRID_DIR="$( cd "$( dirname "$(readlink -f ${BASH_SOURCE[0]})" )" && pwd )"
 LIST=false
 while getopts ":g:d:n:l:h" opt; do
   case ${opt} in
