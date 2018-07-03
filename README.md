@@ -13,9 +13,9 @@ The easiest way to install GRiD is through bioconda which resolves all required 
 
 Add execute permissions for the GRiD scripts
 
-`chmod +x GRiD-master/grid.sh`
+`chmod +x /path/to/folder/grid.sh`
 
-`chmod +x GRiD-master/update_database.sh`
+`chmod +x /path/to/folder/update_database.sh`
 
 **It is highly recommended to run the example test to ensure proper installation before running GRiD on your dataset. You do not need to have downloaded the GRiD database to run the test (see "Example test" below)**.
 
