@@ -74,7 +74,7 @@ The test sample contain reads from *Staphylococcus epidermids*, *Lactobacillus g
 
 `../grid.sh multiplex -r . -d . -p -c 0.2`
 
-For each module, a pdf and a text file is generated.
+For each module, output files (a pdf and a text file) are generated in the test folder.
 
 
 # Updating GRiD database 
