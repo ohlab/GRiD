@@ -70,9 +70,9 @@ The test sample contain reads from *Staphylococcus epidermids*, *Lactobacillus g
 
 `cd test`
 
-`../grid.sh single -r . -g S_epidermidis.LRKNS118.fna -n 8`
+`../grid.sh single -r . -g S_epidermidis.LRKNS118.fna`
 
-`../grid.sh multiplex -r . -d . -p -c 0.2 -n 8`
+`../grid.sh multiplex -r . -d . -p -c 0.2`
 
 For each module, a pdf and a text file is generated.
 
