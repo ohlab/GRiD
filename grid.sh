@@ -502,7 +502,7 @@ rm $i.headers.allSeq.sam
 rm $i.allSeq.no.headers.sam
 
 if [ "$PATHO" == "true" ]; then
-python $GRID_DIR/PathoScope/pathoscope/pathoscope2.py ID -alignFile $i.allSeq.sam -fileType sam -outDir . -thetaPrior $THETA
+python2.7 $GRID_DIR/PathoScope/pathoscope/pathoscope2.py ID -alignFile $i.allSeq.sam -fileType sam -outDir . -thetaPrior $THETA
 rm $i.allSeq.sam
 rm *report.tsv
 
