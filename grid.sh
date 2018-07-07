@@ -277,7 +277,7 @@ echo "$GENOME is the path to reference genome"
  
 #########
 echo " ################ Checking for dependencies ########"
-requirements=$(echo "R bowtie2 seqtk samtools gcc bedtools bamtools blastn python")
+requirements=$(echo "R bowtie2 seqtk samtools gcc bedtools bamtools blastn pathoscope")
 for f in `echo $requirements` 
 do 
 toolCheck=$(type -P $f)
@@ -431,7 +431,7 @@ echo "coverage cutoff is $COV_CUTOFF"
 
 #################################
 echo " ################ Checking for dependencies ########"
-requirements=$(echo "R bowtie2 seqtk samtools gcc bedtools bamtools blastn python")
+requirements=$(echo "R bowtie2 seqtk samtools gcc bedtools bamtools blastn pathoscope")
 for f in `echo $requirements`
 do
 toolCheck=$(type -P $f)
@@ -502,7 +502,7 @@ rm $i.headers.allSeq.sam
 rm $i.allSeq.no.headers.sam
 
 if [ "$PATHO" == "true" ]; then
-python2.7 $GRID_DIR/PathoScope/pathoscope/pathoscope2.py ID -alignFile $i.allSeq.sam -fileType sam -outDir . -thetaPrior $THETA
+pathoscope ID -alignFile $i.allSeq.sam -fileType sam -outDir . -thetaPrior $THETA
 rm $i.allSeq.sam
 rm *report.tsv
 
