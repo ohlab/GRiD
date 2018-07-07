@@ -20,7 +20,7 @@ The easiest way to install GRiD is through bioconda which resolves all required 
     grid.sh single <options>       GRiD using a single genome
     grid.sh multiplex <options>    GRiD high throughput
 
-    ./grid.sh single <options>
+    grid.sh single <options>
     <options>
     -r      Reads directory (single end reads)
     -o      Output directory
@@ -30,7 +30,7 @@ The easiest way to install GRiD is through bioconda which resolves all required 
     -n INT  Number of threads for bowtie mapping (default 1)
     -h      Display this message
 
-    ./grid.sh multiplex <options>
+    grid.sh multiplex <options>
     <options>
     -r         Reads directory (single end reads)
     -o         Output directory
@@ -60,13 +60,13 @@ For the 'multiplex' module, reads mapping to multiple genomes are reassigned usi
 
 
 # Example test
-The test sample contain reads from *Staphylococcus epidermids*, *Lactobacillus gasseri*, and *Campylobacter upsaliensis*, each with a coverage of ~ 0.5. Download the GRiD folder 
+The test sample contain reads from *Staphylococcus epidermids*, *Lactobacillus gasseri*, and *Campylobacter upsaliensis*, each with a coverage of ~ 0.5. Download the GRiD folder and cd to the test directory. 
 
 `cd test`
 
-`/path/to/bin/grid.sh single -r . -g S_epidermidis.LRKNS118.fna`
+`grid.sh single -r . -g S_epidermidis.LRKNS118.fna`
 
-`/path/to/bin/grid.sh multiplex -r . -d . -p -c 0.2`
+`grid.sh multiplex -r . -d . -p -c 0.2`
 
 For each module, output files (a pdf and a text file) are generated in the test folder.
 
