@@ -11,20 +11,14 @@ The easiest way to install GRiD is through bioconda which resolves all required 
 
 `conda install grid`
 
-Add execute permissions for the GRiD scripts
-
-`chmod +x /path/to/folder/grid.sh`
-
-`chmod +x /path/to/folder/update_database.sh`
-
 **It is highly recommended to run the example test to ensure proper installation before running GRiD on your dataset. You do not need to have downloaded the GRiD database to run the test (see "Example test" below)**.
 
 
 # USAGE
 
-    ./grid.sh -h                     Display this help message.
-    ./grid.sh single <options>       GRiD using a single genome
-    ./grid.sh multiplex <options>    GRiD high throughput
+    grid.sh -h                     Display this help message.
+    grid.sh single <options>       GRiD using a single genome
+    grid.sh multiplex <options>    GRiD high throughput
 
     ./grid.sh single <options>
     <options>
@@ -66,13 +60,13 @@ For the 'multiplex' module, reads mapping to multiple genomes are reassigned usi
 
 
 # Example test
-The test sample contain reads from *Staphylococcus epidermids*, *Lactobacillus gasseri*, and *Campylobacter upsaliensis*, each with a coverage of ~ 0.5.
+The test sample contain reads from *Staphylococcus epidermids*, *Lactobacillus gasseri*, and *Campylobacter upsaliensis*, each with a coverage of ~ 0.5. Download the GRiD folder 
 
 `cd test`
 
-`../grid.sh single -r . -g S_epidermidis.LRKNS118.fna`
+`/path/to/bin/grid.sh single -r . -g S_epidermidis.LRKNS118.fna`
 
-`../grid.sh multiplex -r . -d . -p -c 0.2`
+`/path/to/bin/grid.sh multiplex -r . -d . -p -c 0.2`
 
 For each module, output files (a pdf and a text file) are generated in the test folder.
 
