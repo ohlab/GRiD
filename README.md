@@ -60,13 +60,17 @@ For the 'multiplex' module, reads mapping to multiple genomes are reassigned usi
 
 
 # Example test
-The test sample contain reads from *Staphylococcus epidermids*, *Lactobacillus gasseri*, and *Campylobacter upsaliensis*, each with a coverage of ~ 0.5. Download the GRiD folder and cd to the test directory. 
+The test sample contain reads from *Staphylococcus epidermids*, *Lactobacillus gasseri*, and *Campylobacter upsaliensis*, each with a coverage of ~ 0.5. Download the GRiD folder and cd to the test directory as shown below. 
 
-`cd test`
+`wget https://github.com/ohlab/GRiD/archive/1.0.4.tar.gz`
 
-`grid single -r . -g S_epidermidis.LRKNS118.fna`
+`tar xvf 1.0.4.tar.gz`
 
-`grid multiplex -r . -d . -p -c 0.2`
+`cd GRiD-1.0.4/test`
+
+`../grid single -r . -g S_epidermidis.LRKNS118.fna`
+
+`../grid multiplex -r . -d . -p -c 0.2`
 
 For each module, output files (a pdf and a text file) are generated in the test folder.
 
