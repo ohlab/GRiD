@@ -8,9 +8,9 @@ while getopts ":h" opt; do
   case ${opt} in
     h )
       echo "Usage:"
-      echo "    grid.sh -h                     Display this help message"
-      echo "    grid.sh single <options>       GRiD using a single genome"
-      echo "    grid.sh multiplex <options>    GRiD high throughput"
+      echo "    grid -h                     Display this help message"
+      echo "    grid single <options>       GRiD using a single genome"
+      echo "    grid multiplex <options>    GRiD high throughput"
       exit 0
       ;;
    \? )
@@ -23,9 +23,9 @@ done
 if [ $# -eq 0 ];
 then
     echo "Usage:"
-    echo "    grid.sh -h                     Display this help message"
-    echo "    grid.sh single <options>       GRiD using a single genome"
-    echo "    grid.sh multiplex <options>    GRiD high throughput"
+    echo "    grid -h                     Display this help message"
+    echo "    grid single <options>       GRiD using a single genome"
+    echo "    grid multiplex <options>    GRiD high throughput"
     exit 1
 fi
 ##########################################################################
@@ -60,7 +60,7 @@ case "$subcommand" in
           ;;
 	h )
       echo "Usage:"
-      echo "    grid.sh single <options>"
+      echo "    grid single <options>"
       echo "    <options>"
       echo "    -r      Reads directory (single end reads)"
       echo "    -o      Output directory"
@@ -89,7 +89,7 @@ done
 if [ $# -eq 0 ];
 then
       echo "Usage:"
-      echo "    grid.sh single <options>"
+      echo "    grid single <options>"
       echo "    <options>"
       echo "    -r      Reads directory (single end reads)"
       echo "    -o      Output directory"
@@ -167,7 +167,7 @@ shift $((OPTIND -1))
           ;;
         h )
       echo "Usage:"
-      echo "    grid.sh multiplex <options>"
+      echo "    grid multiplex <options>"
       echo "    <options>"
       echo "    -r         Reads directory (single end reads)"
       echo "    -o         Output directory"
@@ -196,7 +196,7 @@ shift $((OPTIND -1))
 if [ $# -eq 0 ];
 then
  echo "Usage:"
-      echo "    grid.sh multiplex <options>"
+      echo "    grid multiplex <options>"
       echo "    <options>"
       echo "    -r         Reads directory (single end reads)"
       echo "    -o         Output directory"
@@ -242,7 +242,7 @@ if ! [[ $NUM_THREAD =~ $INT ]] && [[ $NUM_THREAD != 1 ]] ; then
 fi
 if [ $THETA -gt 0 ] && [ "$PATHO" == "false" ]; then
     echo "-t [option] requires -p flag" 
-    echo "Use grid.sh multiplex -h for usage information "
+    echo "Use grid multiplex -h for usage information "
     exit 1
 fi
 if [ "$LIST" != "false" ]; then
