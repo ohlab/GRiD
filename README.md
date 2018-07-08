@@ -16,11 +16,11 @@ The easiest way to install GRiD is through bioconda which resolves all required 
 
 # USAGE
 
-    grid.sh -h                     Display this help message.
-    grid.sh single <options>       GRiD using a single genome
-    grid.sh multiplex <options>    GRiD high throughput
+    grid -h                     Display this help message.
+    grid single <options>       GRiD using a single genome
+    grid multiplex <options>    GRiD high throughput
 
-    grid.sh single <options>
+    grid single <options>
     <options>
     -r      Reads directory (single end reads)
     -o      Output directory
@@ -30,7 +30,7 @@ The easiest way to install GRiD is through bioconda which resolves all required 
     -n INT  Number of threads for bowtie mapping (default 1)
     -h      Display this message
 
-    grid.sh multiplex <options>
+    grid multiplex <options>
     <options>
     -r         Reads directory (single end reads)
     -o         Output directory
@@ -64,9 +64,9 @@ The test sample contain reads from *Staphylococcus epidermids*, *Lactobacillus g
 
 `cd test`
 
-`grid.sh single -r . -g S_epidermidis.LRKNS118.fna`
+`grid single -r . -g S_epidermidis.LRKNS118.fna`
 
-`grid.sh multiplex -r . -d . -p -c 0.2`
+`grid multiplex -r . -d . -p -c 0.2`
 
 For each module, output files (a pdf and a text file) are generated in the test folder.
 
@@ -75,7 +75,7 @@ For each module, output files (a pdf and a text file) are generated in the test 
 The database can be updated with metagenomic bins or newly sequenced bacterial genomes by running the update_database.sh script (requires bowtie2).
  
 
-    ./update_database.sh <options>
+    update_database <options>
     <options>
     -d      GRiD database directory
     -g      Bacterial genomes directory
