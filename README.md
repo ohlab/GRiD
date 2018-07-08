@@ -68,6 +68,8 @@ The test sample contain reads from *Staphylococcus epidermids*, *Lactobacillus g
 
 `cd GRiD-1.0.4/test`
 
+`chmod +x ../grid`
+
 `../grid single -r . -g S_epidermidis.LRKNS118.fna`
 
 `../grid multiplex -r . -d . -p -c 0.2`
