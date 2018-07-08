@@ -5,7 +5,7 @@ while getopts ":g:d:n:l:h" opt; do
   case ${opt} in
     h )
       echo "Usage:"
-      echo "    update_database.sh <options>"
+      echo "    update_database <options>"
       echo "    <options>"
       echo "    -d      GRiD database directory"
       echo "    -g      Bacterial genomes directory"
@@ -45,7 +45,7 @@ done
 if [ $# -eq 0 ];
 then
       echo "Usage:"
-      echo "    update_database.sh <options>"
+      echo "    update_database <options>"
       echo "    <options>"
       echo "    -d      GRiD database directory"
       echo "    -g      Bacterial genomes directory"
