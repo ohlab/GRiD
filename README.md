@@ -9,7 +9,7 @@ GRiD algorithm consists of two modules;
 # INSTALLATION
 The easiest way to install GRiD is through conda which resolves all required dependencies. 
 
-1.     If you do not have anaconda already installed, download anaconda https://repo.anaconda.com/archive/Anaconda2-5.1.0-Linux-x86_64.sh and run the install script into your home directory.
+1.    If you do not have anaconda already installed, download anaconda https://repo.anaconda.com/archive/Anaconda2-5.1.0-Linux-x86_64.sh and run the install script into your home directory.
     
     -- Set up channels --
     
