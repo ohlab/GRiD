@@ -11,7 +11,7 @@ The easiest way to install GRiD is through bioconda which resolves all required 
 
 1.  If you do not have anaconda already installed, download anaconda https://repo.anaconda.com/archive/Anaconda2-5.1.0-Linux-x86_64.sh and run the install script into your home directory
 
-2.  Install grid
+2.  Install GRiD
 
 `conda install grid`
 
