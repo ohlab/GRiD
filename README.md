@@ -7,9 +7,20 @@ GRiD algorithm consists of two modules;
 2. < multiplex > - for the high-throughput growth analysis of all identified bacteria in a sample. Prior knowledge of microbial composition is not required. To use this module, download the GRiD database, consisting of 32,819 representative bacteria genomes, from **ftp://ftp.jax.org/ohlab/Index/**   
 
 # INSTALLATION
-The easiest way to install GRiD is through bioconda which resolves all required dependencies. 
+The easiest way to install GRiD is through conda which resolves all required dependencies. 
 
-1.  If you do not have anaconda already installed, download anaconda https://repo.anaconda.com/archive/Anaconda2-5.1.0-Linux-x86_64.sh and run the install script into your home directory
+1.  If you do not have anaconda already installed, download anaconda https://repo.anaconda.com/archive/Anaconda2-5.1.0-Linux-x86_64.sh and run the install script into your home directory.
+    
+    - Set up channels
+    
+    conda config --add channels r
+    
+    conda config --add channels defaults
+    
+    conda config --add channels conda-forge
+    
+    conda config --add channels bioconda
+
 
 2.  Install GRiD
 
