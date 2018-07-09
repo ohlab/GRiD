@@ -7,11 +7,12 @@ GRiD algorithm consists of two modules;
 2. < multiplex > - for the high-throughput growth analysis of all identified bacteria in a sample. Prior knowledge of microbial composition is not required. To use this module, download the GRiD database, consisting of 32,819 representative bacteria genomes, from **ftp://ftp.jax.org/ohlab/Index/**   
 
 # INSTALLATION
-The easiest way to install GRiD is through bioconda which resolves all required dependencies.
+The easiest way to install GRiD is through bioconda which resolves all required dependencies. (If you do not have anaconda already installed, download anaconda https://repo.anaconda.com/archive/Anaconda2-5.1.0-Linux-x86_64.sh and run the install script into your home directory)
 
 `conda install grid`
 
 **It is highly recommended to run the example test to ensure proper installation before running GRiD on your dataset. You do not need to have downloaded the GRiD database to run the test (see "Example test" below)**.
+
 
 
 # USAGE
@@ -105,9 +106,7 @@ NOTE: bacteria genomes must be in fasta format and must have either .fasta, .fa 
 - bowtie2 (tested using v 2.3.1)
 - seqtk (tested using v 1.0-r31)
 - samtools (tested using v 1.5)
-- gcc (tested using v 7.1.0)
 - bedtools (tested using v 2.26.0)
 - bamtools (tested using v 1.0.2)
 - blast (tested using v 2.6.0)
-- python (tested using v 2.7.3)
 - Pathoscope2    
