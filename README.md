@@ -13,13 +13,10 @@ The easiest way to install GRiD is through conda which resolves all required dep
     
     -- Set up channels --
     
-    `conda config --add channels r`
-    
-    `conda config --add channels defaults`
-    
-    `conda config --add channels conda-forge`
-    
-    `conda config --add channels bioconda`
+    conda config --add channels r
+    conda config --add channels defaults
+    conda config --add channels conda-forge
+    conda config --add channels bioconda
 
 
 2.     Install GRiD
