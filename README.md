@@ -83,7 +83,7 @@ For each module, output files (a pdf and a text file) are generated in the test 
 
 
 # Updating GRiD database 
-The database can be updated with metagenomic bins or newly sequenced bacterial genomes by running the update_database.sh script (requires bowtie2).
+The database can be updated with metagenomic bins or newly sequenced bacterial genomes by running the update_database script (requires bowtie2).
  
 
     update_database <options>
