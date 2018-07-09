@@ -18,11 +18,10 @@ The easiest way to install GRiD is through conda which resolves all required dep
     conda config --add channels conda-forge
     conda config --add channels bioconda
     
-    Also, for some versions of conda, readline may require updating before use
-    conda install -c conda-forge readline=6.2
-
-
-2.    Install GRiD
+2.    Update R
+      `conda update --all -c r`
+      
+3.    Install GRiD
 
 `conda install grid`
 
