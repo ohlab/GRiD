@@ -19,7 +19,7 @@ The easiest way to install GRiD is through conda which resolves all required dep
     conda config --add channels bioconda
 
 
-2.     Install GRiD
+2.    Install GRiD
 
 `conda install grid`
 
