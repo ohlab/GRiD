@@ -495,12 +495,12 @@ cd $ODR
 
 for f in $i.*.main.sam
 do
-samtools view -H $f >> $i.headers.allSeq.sam
+samtools view -H -S $f >> $i.headers.allSeq.sam
 done
 
 for f in $i.*.main.sam
 do
-samtools view $f >> $i.allSeq.no.headers.sam
+samtools view -S $f >> $i.allSeq.no.headers.sam
 done
 
 cat $i.headers.allSeq.sam $i.allSeq.no.headers.sam > $i.allSeq.sam
