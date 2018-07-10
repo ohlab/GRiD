@@ -18,7 +18,7 @@ The easiest way to install GRiD is through miniconda which resolves all required
     conda config --add channels conda-forge
     conda config --add channels bioconda
           
-3.    Install GRiD
+2.    Install GRiD
 
 `conda install grid=1.0.5`
 
