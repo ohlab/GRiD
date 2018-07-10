@@ -9,7 +9,7 @@ GRiD algorithm consists of two modules;
 # INSTALLATION
 The easiest way to install GRiD is through miniconda which resolves all required dependencies. 
 
-1.    If you do not have anaconda or miniconda already installed, download miniconda https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh and run the install script. Reload .bashrc env `source ~/.bashrc`
+1.    If you do not have anaconda or miniconda already installed, download miniconda https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh and run the install script. Reload .bashrc environment `source ~/.bashrc`
     
     -- Set up channels --
     
