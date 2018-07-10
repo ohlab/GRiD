@@ -354,7 +354,15 @@ do
 samtools view -bS $FILE > $FILE.bam
 rm $FILE
 
+## checking version of samtools
+samcheck=$(samtools --version | grep "samtools" | cut -f2 -d' ')
+if [ -z $samcheck ]; then
+samtools view -b -F 4 $FILE.bam | samtools sort - $FILE.sorted
+else
 samtools view -b -F 4 $FILE.bam | samtools sort -o $FILE.sorted.bam
+fi
+##############
+
 rm $FILE.bam
 echo "Running genomeCoverageBed"
 genomeCoverageBed -ibam $FILE.sorted.bam -d >$FILE.txt
@@ -513,7 +521,15 @@ samtools view -bS $i.allSeq.sam > $i.bam
 rm $i.allSeq.sam
 fi
 
+## checking version of samtools
+samcheck=$(samtools --version | grep "samtools" | cut -f2 -d' ')
+if [ -z $samcheck ]; then
+samtools view -b -F 4 $i.bam | samtools sort - $i.sorted
+else
 samtools view -b -F 4 $i.bam | samtools sort -o $i.sorted.bam
+fi
+###########
+
 samtools index $i.sorted.bam
 rm $i.bam
 
