@@ -20,7 +20,7 @@ The easiest way to install GRiD is through miniconda which resolves all required
           
 2.    Install GRiD
 
-`conda install grid=1.0.5`
+`conda install grid=1.0.6`
 
 **It is highly recommended to run the example test to ensure proper installation before running GRiD on your dataset. You do not need to have downloaded the GRiD database to run the test (see "Example test" below)**.
 
@@ -74,11 +74,11 @@ For the 'multiplex' module, reads mapping to multiple genomes are reassigned usi
 # Example test
 The test sample contain reads from *Staphylococcus epidermids*, *Lactobacillus gasseri*, and *Campylobacter upsaliensis*, each with coverage of ~ 0.5. Download the GRiD folder and run the test as shown below. 
 
-`wget https://github.com/ohlab/GRiD/archive/1.0.5.tar.gz`
+`wget https://github.com/ohlab/GRiD/archive/1.0.6.tar.gz`
 
-`tar xvf 1.0.5.tar.gz`
+`tar xvf 1.0.6.tar.gz`
 
-`cd GRiD-1.0.5/test`
+`cd GRiD-1.0.6/test`
 
 `chmod +x ../grid`
 

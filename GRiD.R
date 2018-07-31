@@ -2,6 +2,7 @@ library(dplyr)
 library(getopt)
 library(ggplot2)
 library(gsubfn)
+options(warn=-1)
 
 spec = matrix(c('cfile','i',1,"character",'cfile2','x',1,"character",'cfile3','y',1,"character",'npdf','o',1,"character",'pfix','p',1,"character",'cov','c',1,"double",'dnaac','d',2,"double",'difc','f',2,"double"),byrow=TRUE,ncol=4)
 opt=getopt(spec)

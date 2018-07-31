@@ -304,6 +304,15 @@ rm .checkedR
 fi
 ##############################
 
+mkdir -p $ODR
+
+if [ -z "$(ls -A $ODR)" ]; then
+   echo "Output directory ok"
+else
+   echo "Output directory not Empty"
+   exit 1
+fi
+
 cd $ODR
 ref_genome=$(echo "$GENOME" | rev | cut -d'/' -f1 | rev)
 
@@ -315,6 +324,7 @@ echo "Running BLAST to dnaA and dif databases"
 
 dnaa_id_var=$(echo "dnaa_$(date +%s)")
 dif_id_var=$(echo "dif_$(date +%s)")
+readsforgrid=$(echo "reads_$(date +%s)")
 
 blastn -query $GENOME -db $GRID_DIR/blast_database/dnaa.fasta -evalue 0.05 -num_threads 60 -max_target_seqs 1 -outfmt 6 -out $dnaa_id_var -word_size 11
 blastn -query $GENOME -db $GRID_DIR/blast_database/dif.fasta -evalue 0.05 -num_threads 60 -max_target_seqs 1 -outfmt 6 -out $dif_id_var -word_size 11
@@ -329,14 +339,14 @@ echo "done"
 echo "Running bowtie"
 cd $RDR
 if [ "$LIST" == "false" ]; then
-ls *.fastq | rev | cut -d'.' -f2- | rev > readsforgrid.txt
+ls *.fastq | rev | cut -d'.' -f2- | rev > $ODR/$readsforgrid.txt
 else
-cat $LIS | rev | cut -d'.' -f2- | rev > readsforgrid.txt
+cat $LIS | rev | cut -d'.' -f2- | rev > $ODR/$readsforgrid.txt
 fi
 
-for i in `cat readsforgrid.txt`
+for i in `cat $ODR/$readsforgrid.txt`
 do
-bowtie2 -x $ODR/bowtie_$ref_genome -U $i.fastq --very-sensitive -S $ODR/$i.main.sam --al $ODR/$i.MAP.fastq -p $NUM_THREAD
+bowtie2 -x $ODR/bowtie_$ref_genome -U $i.fastq --very-sensitive -S $ODR/$i.main.sam --al $ODR/$i.MAP.fastq -p $NUM_THREAD || exit 1
 
 cd $ODR
 # subsample 85% of mapped reads twice 
@@ -418,7 +428,7 @@ done
 rm $ODR/$dnaa_id_var
 rm $ODR/$dif_id_var
 rm $ODR/bowtie_$ref_genome*bt2
-rm $RDR/readsforgrid.txt
+rm $ODR/$readsforgrid.txt
 
 else
 ######################################
@@ -465,29 +475,38 @@ echo "R libraries ok"
 rm .checkedR
 fi
 ##############################
+mkdir -p $ODR
+
+if [ -z "$(ls -A $ODR)" ]; then
+   echo "Output directory ok"
+else
+   echo "Output directory not Empty"
+   exit 1
+fi
 
 cd $RDR
+readsforgrid=$(echo "reads_$(date +%s)")
 if [ "$LIST" == "false" ]; then
-ls *.fastq | rev | cut -d'.' -f2- | rev > readsforgrid.txt
+ls *.fastq | rev | cut -d'.' -f2- | rev > $ODR/$readsforgrid.txt
 else
-cat $LIS | rev | cut -d'.' -f2- | rev > readsforgrid.txt
+cat $LIS | rev | cut -d'.' -f2- | rev > $ODR/$readsforgrid.txt
 fi
 
 
-for i in `cat readsforgrid.txt`
+for i in `cat $ODR/$readsforgrid.txt`
 do
 ###### checks if GRiD test example is to be run #############
 if [ -e $DBR/BOWTIE_mock_GRiD_database.1.bt2 ]; then
 for BOWTIE in `cat $DBR/bowtie.txt`
 do
-bowtie2 -x $DBR/$BOWTIE -U $i.fastq --very-sensitive -S $ODR/$i.$BOWTIE.main.sam -p $NUM_THREAD
+bowtie2 -x $DBR/$BOWTIE -U $i.fastq --very-sensitive -S $ODR/$i.$BOWTIE.main.sam -p $NUM_THREAD || exit 1
 done
 
 else
 #############################################################  
 for BOWTIE in `cat $GRID_DIR/bowtie.txt`
 do
-bowtie2 -x $DBR/$BOWTIE -U $i.fastq --very-sensitive -S $ODR/$i.$BOWTIE.main.sam -p $NUM_THREAD
+bowtie2 -x $DBR/$BOWTIE -U $i.fastq --very-sensitive -S $ODR/$i.$BOWTIE.main.sam -p $NUM_THREAD || exit 1
 done
 fi
 
@@ -634,11 +653,11 @@ rm $i.passed_genomes.txt
 rm $i.depth.txt
 rm $i.length.txt
 
-Rscript $GRID_DIR/GRiD_multiplex_tree.R -i $i.GRiD.txt -o $i.GRiD.pdf 
+Rscript $GRID_DIR/GRiD_multiplex_tree.R -i $i.GRiD.txt -o $i.GRiD.pdf
 
 cd $RDR
 done
-rm $RDR/readsforgrid.txt
+rm $ODR/$readsforgrid.txt
 fi
 ################## merge option ####################
 cd $ODR
