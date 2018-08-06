@@ -24,7 +24,7 @@ The easiest way to install GRiD is through miniconda which resolves all required
 
 **It is highly recommended to run the example test to ensure proper installation before running GRiD on your dataset. You do not need to have downloaded the GRiD database to run the test (see "Example test" below)**.
 
-
+**NOTE: Ensure GRiD-1.0.6 was installed via conda. Please see installation instructions**
 
 # USAGE
 
