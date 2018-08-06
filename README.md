@@ -74,6 +74,7 @@ For the 'multiplex' module, reads mapping to multiple genomes are reassigned usi
 # Example test
 The test sample contain reads from *Staphylococcus epidermids*, *Lactobacillus gasseri*, and *Campylobacter upsaliensis*, each with coverage of ~ 0.5. Download the GRiD folder and run the test as shown below. 
 
+# NOTE: Ensure GRiD-1.0.6 was installed via conda. Please see installation instructions  
 `wget https://github.com/ohlab/GRiD/archive/1.0.6.tar.gz`
 
 `tar xvf 1.0.6.tar.gz`
