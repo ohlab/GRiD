@@ -22,7 +22,7 @@ The easiest way to install GRiD is through miniconda which resolves all required
 
 `conda install grid=1.0.6`
 
-**NOTE: Ensure you include the grid version as above (grid=1.0.6) during conda installation**
+**NOTE: Ensure you include the GRiD version as above (grid=1.0.6) during conda installation**
 
 **It is highly recommended to run the example test to ensure proper installation before running GRiD on your dataset. You do not need to have downloaded the GRiD database to run the test (see "Example test" below)**.
 
