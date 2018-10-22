@@ -141,6 +141,6 @@ rm $DBR/GRiD.temp.misc.txt
 rm grid_database_*
 
 cd $DBR
-ls BOWTIE_$NAME.rev.1.bt2* | rev | cut -d'.' -f4- | rev >> $GRID_DIR/bowtie.txt 
+ls BOWTIE_$NAME.rev.1.bt2* | rev | cut -d'.' -f4- | rev >> $DBR/bowtie.txt 
 
 ###############################################
