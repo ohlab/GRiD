@@ -4,7 +4,11 @@ Growth Rate Index (GRiD) measures bacterial growth rate from reference genomes (
 GRiD algorithm consists of two modules;
 
 1. < single > - which is applicable for growth analysis involving a single reference genome
-2. < multiplex > - for the high-throughput growth analysis of all identified bacteria in a sample. Prior knowledge of microbial composition is not required. To use this module, download the GRiD database, consisting of 32,819 representative bacteria genomes, from **ftp://ftp.jax.org/ohlab/Index/**   
+2. < multiplex > - for the high-throughput growth analysis of most identified bacteria in a sample. Prior knowledge of microbial composition is not required. To use this module, you must download the GRiD database.
+ 
+The comprehensive GRiD database consists of 32,819 representative bacteria genomes and can be obtained from ftp://ftp.jax.org/ohlab/Index/. 
+
+However, we provided environment-specific database that was created using microbes mostly found in a specific microbial niche. This can be retrieved from **ftp://ftp.jax.org/ohlab/GRiD_environ_specific_database/**. For instance, if you are analyzing stool samples, it is advisable to download stool database `ftp://ftp.jax.org/ohlab/GRiD_environ_specific_database/stool_microbes.tar.gz`.   
 
 # INSTALLATION
 The easiest way to install GRiD is through miniconda which resolves all required dependencies. 
@@ -13,16 +17,15 @@ The easiest way to install GRiD is through miniconda which resolves all required
     
     -- Set up channels --
     
-    conda config --add channels r
     conda config --add channels defaults
-    conda config --add channels conda-forge
     conda config --add channels bioconda
+    conda config --add channels conda-forge
           
 2.    Install GRiD
 
-`conda install grid=1.0.6`
+`conda install grid=1.1`
 
-**NOTE: Ensure you include the GRiD version as above (grid=1.0.6) during conda installation**
+**NOTE: Ensure you include the GRiD version as above (grid=1.1) during conda installation**
 
 **It is highly recommended to run the example test to ensure proper installation before running GRiD on your dataset. You do not need to have downloaded the GRiD database to run the test (see "Example test" below)**.
 
@@ -60,7 +63,7 @@ The easiest way to install GRiD is through miniconda which resolves all required
 
 **NOTE: Sample reads must be in single-end format**. If reads are only available in paired-end format, use either of the mate pairs, or concatenate both pairs into a single fastq file. In addition, reads must have the .fastq extension (and not .fq). Using either modules, the default is to analyze all samples present in the reads directory. However, analysis can be restricted to a subset of samples by using the -l flag and specifying a file that lists the subset of samples.    
 
-For the 'multiplex' module, reads mapping to multiple genomes are reassigned using Pathoscope 2 when the -p flag is set. The degree to which reads are reassigned is set by the -t (theta prior) flag. The theta prior value represents the number of non-unique reads that are not subject to reassignment. Finally, when the coverage cutoff (-c flag) is set below 1, only genomes with fragmentation levels below 90 fragments/Mbp are analyzed (see xxx et al. for more details). **Note that to use the 'multiplex' module, you must have downloaded the GRiD database from ftp://ftp.jax.org/ohlab/Index/. However, you do not need the database to run the example test**.
+For the 'multiplex' module, reads mapping to multiple genomes are reassigned using Pathoscope 2 when the -p flag is set. The degree to which reads are reassigned is set by the -t (theta prior) flag. The theta prior value represents the number of non-unique reads that are not subject to reassignment. Finally, when the coverage cutoff (-c flag) is set below 1, only genomes with fragmentation levels below 90 fragments/Mbp are analyzed (see xxx et al. for more details). **Note that to use the 'multiplex' module, you must have downloaded the GRiD database (i.e. environ_specific_database [ftp://ftp.jax.org/ohlab/GRiD_environ_specific_database/] or comprehensive database [ftp://ftp.jax.org/ohlab/Index/]. However, you do not need the database to run the example test**.
 
 # OUTPUT
 `single module` - two output files are generated
@@ -68,32 +71,30 @@ For the 'multiplex' module, reads mapping to multiple genomes are reassigned usi
 - A table of results (.txt) displaying growth rate (GRiD), 95% confidence interval, unrefined GRiD value, species heterogeneity, genome coverage, *dnaA/ori* ratio, and *ter/dif* ratio. Species heterogeneity is a metric estimating the degree to which closely related strains/species contribute to variance in growth predictions (range between 0 - 1 where 0 indicate no heterogeneity). In most bacteria genomes, *dnaA* is located in close proximity to the *ori* whereas replication typically terminates at/near *dif* sequence. Thus, the closer *dnaA/ori* and *ter/dif* ratios are to one, the more likely the accuracy of GRiD scores.  
 
 `multiplex module` - two output files are generated per sample
-- A heatmap (.pdf), displaying growth rate (GRiD) from genomes above the coverage cutoff with hierachical clustering. 
-- A table of results (.txt) displaying growth rate (GRiD) of genomes above the coverage cutoff, unrefined GRiD value, species heterogeneity, and genome coverage. If -m flag is set, all tables will be merged into a single matrix file called "merged_table.txt".
+- A table of results (.txt) displaying growth rate (GRiD) for **ALL** genomes above the coverage cutoff, unrefined GRiD value, species heterogeneity, and genome coverage. If -m flag is set, all tables will be merged into a single matrix file called "merged_table.txt".
+- A heatmap (.pdf), displaying growth rate (GRiD) of the 70 most abundant species above the coverage cutoff with hierachical clustering. 
 
 
 # Example test
 The test sample contain reads from *Staphylococcus epidermids*, *Lactobacillus gasseri*, and *Campylobacter upsaliensis*, each with coverage of ~ 0.5. Download the GRiD folder and run the test as shown below. 
 
-**NOTE: Ensure GRiD-1.0.6 was installed via conda. Please see installation instructions**  
+**NOTE: Ensure GRiD-1.1 was installed via conda. Please see installation instructions**  
 
-`wget https://github.com/ohlab/GRiD/archive/1.0.6.tar.gz`
+`wget https://github.com/ohlab/GRiD/archive/1.1.tar.gz`
 
-`tar xvf 1.0.6.tar.gz`
+`tar xvf 1.1.tar.gz`
 
-`cd GRiD-1.0.6/test`
+`cd GRiD-1.1/test`
 
-`chmod +x ../grid`
+`grid single -r . -g S_epidermidis.LRKNS118.fna`
 
-`../grid single -r . -g S_epidermidis.LRKNS118.fna`
-
-`../grid multiplex -r . -d . -p -c 0.2`
+`grid multiplex -r . -d . -p -c 0.2`
 
 For each module, output files (a pdf and a text file) are generated in the test folder.
 
 
 # Updating GRiD database 
-The database can be updated with metagenomic bins or newly sequenced bacterial genomes by running the update_database script (requires bowtie2).
+The database can be updated with metagenomic bins or newly sequenced bacterial genomes by running the update_database script.
  
 
     update_database <options>
@@ -124,3 +125,4 @@ NOTE: bacteria genomes must be in fasta format and must have either .fasta, .fa 
 - bamtools (tested using v 1.0.2)
 - blast (tested using v 2.6.0)
 - Pathoscope2    
+- parallel
