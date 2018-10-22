@@ -4,11 +4,11 @@ Growth Rate Index (GRiD) measures bacterial growth rate from reference genomes (
 GRiD algorithm consists of two modules;
 
 1. < single > - which is applicable for growth analysis involving a single reference genome
-2. < multiplex > - for the high-throughput growth analysis of most identified bacteria in a sample. Prior knowledge of microbial composition is not required. To use this module, you must download the GRiD database.
+2. < multiplex > - for the high-throughput growth analysis of all identified bacteria in a sample. Prior knowledge of microbial composition is not required. To use this module, you must download the GRiD database.
  
 The comprehensive GRiD database consists of 32,819 representative bacteria genomes and can be obtained from ftp://ftp.jax.org/ohlab/Index/. 
 
-However, we provided environment-specific database that was created using microbes mostly found in a specific microbial niche. This can be retrieved from **ftp://ftp.jax.org/ohlab/GRiD_environ_specific_database/**. For instance, if you are analyzing stool samples, it is advisable to download the stool database `ftp://ftp.jax.org/ohlab/GRiD_environ_specific_database/stool_microbes.tar.gz`.   
+However, to reduce runtime, we provided environment-specific database that was created using microbes mostly found in a specific microbial niche. This can be retrieved from **ftp://ftp.jax.org/ohlab/GRiD_environ_specific_database/**. For instance, if you are analyzing stool samples, it is advisable to download and extract the stool database `ftp://ftp.jax.org/ohlab/GRiD_environ_specific_database/stool_microbes.tar.gz`.   
 
 # INSTALLATION
 The easiest way to install GRiD is through miniconda which resolves all required dependencies. 
