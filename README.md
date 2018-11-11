@@ -65,7 +65,7 @@ The easiest way to install GRiD is through miniconda which resolves all required
 
 In both 'single' and 'multiplex' modules, all samples present in the reads directory would be analyzed by default. However, analysis can be restricted to a subset of samples by using the -l flag and specifying a file that lists the subset of samples.    
 
-For the 'multiplex' module, reads mapping to multiple genomes are reassigned using Pathoscope 2 when the -p flag is set. The degree to which reads are reassigned is set by the -t (theta prior) flag. The theta prior value represents the number of non-unique reads that are not subject to reassignment. Finally, when the coverage cutoff (-c flag) is set below 1, only genomes with fragmentation levels below 90 fragments/Mbp are analyzed (see xxx et al. for more details). **Note that to use the 'multiplex' module, you must have downloaded the GRiD database (i.e. environ_specific_database `[ftp://ftp.jax.org/ohlab/GRiD_environ_specific_database/]` or comprehensive database `[ftp://ftp.jax.org/ohlab/Index/]`). However, you do not need the database to run the example test**.
+For the 'multiplex' module, reads mapping to multiple genomes are reassigned using Pathoscope 2 when the -p flag is set. The degree to which reads are reassigned is set by the -t (theta prior) flag. The theta prior value represents the number of non-unique reads that are not subject to reassignment. Finally, when the coverage cutoff (-c flag) is set below 1, only genomes with fragmentation levels below 90 fragments/Mbp are analyzed (see xxx et al. for more details). **Note that to use the 'multiplex' module, you must have downloaded either the environ_specific_database from `[ftp://ftp.jax.org/ohlab/GRiD_environ_specific_database/]` or comprehensive database `[ftp://ftp.jax.org/ohlab/Index/]`. However, you do not need the database to run the example test**.
 
 # OUTPUT
 `single module` - two output files are generated
@@ -74,7 +74,7 @@ For the 'multiplex' module, reads mapping to multiple genomes are reassigned usi
 
 `multiplex module` - two output files are generated per sample
 - A table of results (.txt) displaying growth rate score (GRiD) for **ALL** genomes above the coverage cutoff, unrefined GRiD value, species heterogeneity, and genome coverage. If -m flag is set, all tables will be merged into a single matrix file called "merged_table.txt".
-- A heatmap (.pdf), displaying growth rate score (GRiD) of the **70 most abundant species** above the coverage cutoff with hierachical clustering. 
+- A heatmap (.pdf), displaying growth rate score (GRiD) for the **70 most abundant species** above the coverage cutoff with hierachical clustering. 
 
 
 # Example test
