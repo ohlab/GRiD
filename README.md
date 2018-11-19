@@ -86,9 +86,9 @@ The test sample contain reads from *Staphylococcus epidermids*, *Lactobacillus g
 
 `cd GRiD-1.1/test`
 
-`grid single -r . -g S_epidermidis.LRKNS118.fna`
+`grid single -r . -g S_epidermidis.LRKNS118.fna -o output_single`
 
-`grid multiplex -r . -d . -p -c 0.2`
+`grid multiplex -r . -d . -p -c 0.2 -o output_multiplex`
 
 For each module, output files (a pdf and a text file) are generated in the test folder.
 
