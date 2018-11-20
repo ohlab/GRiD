@@ -99,14 +99,14 @@ The database can be updated with metagenomic bins or newly sequenced bacterial g
 
     update_database <options>
     <options>
-    -d      GRiD database directory
-    -g      Bacterial genomes directory
-    -n      Name for new database
+    -d      GRiD database directory (required)
+    -g      Bacterial genomes directory (required)
+    -p      Prefix for new database (required)
     -l      Path to file listing specific genomes
             for inclusion in database [default = include all genomes in directory]
     -h      Display this message
 
-NOTE: bacteria genomes must be in fasta format and must have either .fasta, .fa or .fna extensions.
+NOTE: Genomes must be in fasta format and must have either .fasta, .fa or .fna extensions.
 
 
 # DEPENDENCIES
