@@ -61,7 +61,7 @@ The easiest way to install GRiD is through miniconda which resolves all required
     -h         Display this message
 
 
-**NOTE: Sample reads must be in single-end format**. If reads are only available in paired-end format, use either of the mate pairs, or concatenate both pairs into a single fastq file. In addition, reads must have the .fastq extension (and not .fq). 
+**NOTE: Sample reads must be in single-end format**. If reads are only available in paired-end format, use either of the mate pairs, or concatenate both pairs into a single fastq file. In addition, reads must have the .fastq extension (and not .fq). Also, when specifying the output folder using the -o flag, either select a non-existing folder (in this case, GRiD would create the folder) or select an  existing but empty folder.  
 
 In both 'single' and 'multiplex' modules, all samples present in the reads directory would be analyzed by default. However, analysis can be restricted to a subset of samples by using the -l flag and specifying a file that lists the subset of samples.    
 
