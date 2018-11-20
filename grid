@@ -316,7 +316,7 @@ mkdir -p $ODR
 if [ -z "$(ls -A $ODR)" ]; then
    echo "Output directory ok"
 else
-   echo "Output directory not Empty"
+   echo "ERROR: Output directory not Empty"
    exit 1
 fi
 
@@ -491,7 +491,7 @@ mkdir -p $ODR
 if [ -z "$(ls -A $ODR)" ]; then
    echo "Output directory ok"
 else
-   echo "Output directory not Empty"
+   echo "ERROR: Output directory not Empty"
    exit 1
 fi
 
@@ -652,7 +652,7 @@ else
 echo "$f passed"
 fi
 done
-grep -vf $i.removedGenomes.txt $i.GRiD.temp.txt > $i.GRiD.txt
+grep -wvf $i.removedGenomes.txt $i.GRiD.temp.txt > $i.GRiD.txt
 
 rm $i.removedGenomes.txt
 rm $i.GRiD.temp.txt
