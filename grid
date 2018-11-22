@@ -15,7 +15,7 @@ while getopts ":hv" opt; do
       exit 0
       ;;
     v )
-      echo "grid v1.1" 
+      echo "grid v1.2" 
       exit 0
       ;;
    \? )
@@ -517,16 +517,16 @@ cd $ODR
 
 for f in $i.*.main.sam
 do
-samtools view -H -S $f >> $i.headers.allSeq.sam
+samtools view -H -S $f >> $i.headers.allSeq.sam || exit 1
 done
 
 for f in $i.*.main.sam
 do
-samtools view -S $f >> $i.allSeq.no.headers.sam
+samtools view -S $f >> $i.allSeq.no.headers.sam || exit 1
 done
 rm $i.*.main.sam
 
-cat $i.headers.allSeq.sam $i.allSeq.no.headers.sam > $i.allSeq.sam
+cat $i.headers.allSeq.sam $i.allSeq.no.headers.sam > $i.allSeq.sam || exit 1
 
 rm $i.headers.allSeq.sam
 rm $i.allSeq.no.headers.sam
