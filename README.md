@@ -65,7 +65,7 @@ The easiest way to install GRiD is through miniconda which resolves all required
 
 In both 'single' and 'multiplex' modules, all samples present in the reads directory would be analyzed by default. However, analysis can be restricted to a subset of samples by using the -l flag and specifying a file that lists the subset of samples.    
 
-For the 'multiplex' module, reads mapping to multiple genomes are reassigned using Pathoscope 2 when the -p flag is set. The degree to which reads are reassigned is set by the -t (theta prior) flag. The theta prior value represents the number of non-unique reads that are not subject to reassignment. Finally, when the coverage cutoff (-c flag) is set below 1, only genomes with fragmentation levels below 90 fragments/Mbp are analyzed (see xxx et al. for more details). **Note that to use the 'multiplex' module, you must have downloaded either the environ_specific_database from `[ftp://ftp.jax.org/ohlab/GRiD_environ_specific_database/]` or comprehensive database `[ftp://ftp.jax.org/ohlab/Index/]`. However, you do not need the database to run the example test**.
+For the 'multiplex' module, reads mapping to multiple genomes are reassigned using Pathoscope 2 when the -p flag is set. The degree to which reads are reassigned is set by the -t (theta prior) flag. The theta prior value represents the number of non-unique reads that are not subject to reassignment. Finally, when the coverage cutoff (-c flag) is set below 1, only genomes with fragmentation levels below 90 fragments/Mbp are analyzed (see Emiola & Oh, 2018 for more details). **Note that to use the 'multiplex' module, you must have downloaded either the environ_specific_database from `[ftp://ftp.jax.org/ohlab/GRiD_environ_specific_database/]` or comprehensive database `[ftp://ftp.jax.org/ohlab/Index/]`. However, you do not need the database to run the example test**.
 
 # OUTPUT
 `single module` - two output files are generated
@@ -77,14 +77,20 @@ For the 'multiplex' module, reads mapping to multiple genomes are reassigned usi
 - A heatmap (.pdf), displaying growth rate score (GRiD) for the **70 most abundant species** above the coverage cutoff with hierachical clustering. 
 
 
+**Some notes to keep in mind when using the 'multiplex' module to enhance performace**
+-  If possible, use the smaller `environ_specific_database` GRiD database.
+-  Subsample very large files to a few million reads to considerably reduce runtime. 
+-  Whenever possible, run your analyses with and without the Pathoscope reassignment (-p) option and compare results. You can also fine-tune the reads reassignment parameters using -t flag.
+-  Also, you may want to filter your results based on `Species heterogeneity`. Typically, growth estimates with 'Species heterogeneity' values < 0.3 are very reliable.
+
 # Example test
 The test sample contain reads from *Staphylococcus epidermids*, *Lactobacillus gasseri*, and *Campylobacter upsaliensis*, each with coverage of ~ 0.5. Download the GRiD folder and run the test as shown below. 
 
-`wget https://github.com/ohlab/GRiD/archive/1.1.tar.gz`
+`wget https://github.com/ohlab/GRiD/archive/1.2.tar.gz`
 
-`tar xvf 1.1.tar.gz`
+`tar xvf 1.2.tar.gz`
 
-`cd GRiD-1.1/test`
+`cd GRiD-1.2/test`
 
 `grid single -r . -g S_epidermidis.LRKNS118.fna -o output_single`
 
@@ -127,3 +133,4 @@ NOTE: Genomes must be in fasta format and must have either .fasta, .fa or .fna e
 - Pathoscope2    
 - parallel
 - mosdepth 
+
