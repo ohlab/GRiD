@@ -1,5 +1,7 @@
 # GRiD
-Growth Rate Index (GRiD) measures bacterial growth rate from reference genomes (including draft quality genomes) and metagenomic bins at ultra-low sequencing coverage (> 0.2x). 
+Growth Rate Index (GRiD) measures bacterial growth rate from reference genomes (including draft quality genomes) and metagenomic bins at ultra-low sequencing coverage (> 0.2x). GRiD is described in 
+
+Emiola and Oh (2018) "High throughput in situ metagenomic measurement of bacterial replication at ultra-low sequencing coverage." *Nature Communications*  (https://www.nature.com/articles/s41467-018-07240-8).
 
 GRiD algorithm consists of two modules;
 
