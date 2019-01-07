@@ -27,6 +27,13 @@ The easiest way to install GRiD is through miniconda which resolves all required
 
 `conda install grid=1.2`
 
+To avoid compatibility issues with dependencies, it is generally advisable to create a conda environment for any software to be installed using conda (for external reference, see https://conda.io/docs/user-guide/tasks/manage-environments.html#).
+
+As an example, you can create an environment prior to GRiD installation as below
+
+    conda create --name GRiD
+    source activate GRiD
+    conda install grid=1.2
 
 **It is highly recommended to run the example test to ensure proper installation before running GRiD on your dataset. You do not need to have downloaded the GRiD database to run the test (see "Example test" below)**.
 
@@ -81,12 +88,14 @@ For the 'multiplex' module, reads mapping to multiple genomes are reassigned usi
 
 **Some notes to keep in mind when using the 'multiplex' module to enhance performace**
 -  If possible, use the smaller `environ_specific_database` GRiD database.
--  Subsample very large files to a few million reads to considerably reduce runtime. 
+-  Subsample very large files to considerably reduce runtime. 
 -  Whenever possible, run your analyses with and without the Pathoscope reassignment (-p) option and compare results. You can also fine-tune the reads reassignment parameters using -t flag.
 -  Also, you may want to filter your results based on `Species heterogeneity`. Typically, growth estimates with 'Species heterogeneity' values < 0.3 are very reliable.
 
 # Example test
 The test sample contain reads from *Staphylococcus epidermids*, *Lactobacillus gasseri*, and *Campylobacter upsaliensis*, each with coverage of ~ 0.5. Download the GRiD folder and run the test as shown below. 
+
+If you created a conda environment prior to installation using the example in the "Installation" section, then always activate the environment prior to running GRiD using the command `source activate GRiD`. Otherwise, skip this step. 
 
 `wget https://github.com/ohlab/GRiD/archive/1.2.tar.gz`
 
@@ -118,7 +127,7 @@ NOTE: Genomes must be in fasta format and must have either .fasta, .fa or .fna e
 
 
 # DEPENDENCIES
-- R (tested using v 3.2.3) 
+- R (tested using v 3.4.1) 
     - Required R libraries - 
     dplyr,
     getopt,
