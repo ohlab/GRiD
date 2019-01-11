@@ -105,7 +105,7 @@ If you created a conda environment prior to installation using the example in th
 
 `grid single -r . -g S_epidermidis.LRKNS118.fna -o output_single`
 
-`grid multiplex -r . -d . -p -c 0.2 -o output_multiplex`
+`grid multiplex -r . -d . -p -c 0.2 -o output_multiplex -n 16`    (This command tells GRiD to reassign ambiguous reads, calculate genomes with coverage > 0.2, and use 16 threads) 
 
 For each module, output files (a pdf and a text file) are generated in the test folder.
 
