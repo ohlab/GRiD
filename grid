@@ -47,10 +47,13 @@ case "$subcommand" in
     NUM_THREAD=1
     INT='^[0-9]+$'
     # Process package options
-    while getopts ":r:o:g:l:n:h" opt; do
+    while getopts ":r:e:o:g:l:n:h" opt; do
       case ${opt} in
         r )
           READS_DIR=$OPTARG
+          ;;
+        e )
+          READS_EXT=$OPTARG
           ;;
         o )
           OUTPUT_DIR=$OPTARG
@@ -69,6 +72,7 @@ case "$subcommand" in
       echo "    grid single <options>"
       echo "    <options>"
       echo "    -r      Reads directory (single end reads)"
+      echo "    -e      Reads filename extension (fq, fastq, fastq.gz, ...) [default fastq]"
       echo "    -o      Output directory"
       echo "    -g      Reference genome (fasta)"
       echo "    -l      Path to file listing a subset of reads"
@@ -98,6 +102,7 @@ then
       echo "    grid single <options>"
       echo "    <options>"
       echo "    -r      Reads directory (single end reads)"
+      echo "    -e      Reads filename extension (fq, fastq, fastq.gz, ...) [default fastq]"
       echo "    -o      Output directory"
       echo "    -g      Reference genome (fasta)"
       echo "    -l      Path to file listing a subset of reads"
@@ -110,6 +115,9 @@ fi
 if [ "x" == "x$READS_DIR" ]; then
   echo "-r [option] is required"
   exit 1
+fi
+if [ "x" == "x$READS_EXT" ]; then
+  READS_EXT="fastq"
 fi
 if [ "x" == "x$OUTPUT_DIR" ]; then
  directory=$(echo "output_single_$(date +%s)") 
@@ -142,10 +150,13 @@ shift $((OPTIND -1))
    FLOAT='^[0-9]+([.][0-9]+)?$'
    MERGE=false
     # Process package options
-    while getopts ":r:o:d:c:t:l:n:pmh" opt; do
+    while getopts ":r:e:o:d:c:t:l:n:pmh" opt; do
       case ${opt} in
         r )
           READS_DIR=$OPTARG
+          ;;
+        e )
+          READS_EXT=$OPTARG
           ;;
         o )
           OUTPUT_DIR=$OPTARG
@@ -156,7 +167,7 @@ shift $((OPTIND -1))
         c )
           COV_CUTOFF=$OPTARG
           ;;
-	n )
+	    n )
           NUM_THREAD=$OPTARG
           ;;
         p )
@@ -176,6 +187,7 @@ shift $((OPTIND -1))
       echo "    grid multiplex <options>"
       echo "    <options>"
       echo "    -r         Reads directory (single end reads)"
+      echo "    -e      Reads filename extension (fq, fastq, fastq.gz, ...) [default fastq]"
       echo "    -o         Output directory"
       echo "    -d         GRiD database directory"
       echo "    -c  FLOAT  Coverage cutoff (>= 0.2) [default 1]"
@@ -205,6 +217,7 @@ then
       echo "    grid multiplex <options>"
       echo "    <options>"
       echo "    -r         Reads directory (single end reads)"
+      echo "    -e         Reads filename extension (fq, fastq, fastq.gz, ...) [default fastq]"
       echo "    -o         Output directory"
       echo "    -d         GRiD database directory"
       echo "    -c  FLOAT  Coverage cutoff (>= 0.2) [default 1]"
@@ -220,6 +233,9 @@ fi
 if [ "x" == "x$READS_DIR" ]; then
   echo "-r [option] is required"
   exit 1
+fi
+if [ "x" == "x$READS_EXT" ]; then
+  READS_EXT="fastq"
 fi
 if [ "x" == "x$OUTPUT_DIR" ]; then
   directory=$(echo "output_multiplex_$(date +%s)")
@@ -346,14 +362,15 @@ echo "done"
 echo "Running bowtie"
 cd $RDR
 if [ "$LIST" == "false" ]; then
-ls *.fastq | rev | cut -d'.' -f2- | rev > $ODR/$readsforgrid.txt
+ls *.$READS_EXT | sed "s/.$READS_EXT//" > $ODR/$readsforgrid.txt
 else
-cat $LIS | rev | cut -d'.' -f2- | rev > $ODR/$readsforgrid.txt
+cat $LIS | sed "s/.$READS_EXT//" > $ODR/$readsforgrid.txt
 fi
 
 for i in `cat $ODR/$readsforgrid.txt`
 do
-bowtie2 -x $ODR/bowtie_$ref_genome -U $i.fastq --very-sensitive -S $ODR/$i.main.sam --al $ODR/$i.MAP.fastq -p $NUM_THREAD || exit 1
+echo $i
+bowtie2 -x $ODR/bowtie_$ref_genome -U $i.$READS_EXT --very-sensitive -S $ODR/$i.main.sam --al $ODR/$i.MAP.fastq -p $NUM_THREAD || exit 1
 
 cd $ODR
 # subsample 85% of mapped reads twice 
@@ -498,9 +515,10 @@ fi
 cd $RDR
 readsforgrid=$(echo "reads_$(date +%s)")
 if [ "$LIST" == "false" ]; then
-ls *.fastq | rev | cut -d'.' -f2- | rev > $ODR/$readsforgrid.txt
+ls *.$READS_EXT | sed "s/.$READS_EXT//" > $ODR/$readsforgrid.txt
+
 else
-cat $LIS | rev | cut -d'.' -f2- | rev > $ODR/$readsforgrid.txt
+cat $LIS | sed "s/.$READS_EXT//" > $ODR/$readsforgrid.txt
 fi
 
 
@@ -509,7 +527,7 @@ do
 #############################################################  
 for BOWTIE in `cat $DBR/bowtie.txt`
 do
-bowtie2 -x $DBR/$BOWTIE -U $i.fastq --very-sensitive -S $ODR/$i.$BOWTIE.main.sam -p $NUM_THREAD --quiet -a || exit 1
+bowtie2 -x $DBR/$BOWTIE -U $i.$READS_EXT --very-sensitive -S $ODR/$i.$BOWTIE.main.sam -p $NUM_THREAD --quiet -a || exit 1
 done
 
 
