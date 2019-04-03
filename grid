@@ -362,9 +362,9 @@ echo "done"
 echo "Running bowtie"
 cd $RDR
 if [ "$LIST" == "false" ]; then
-ls *.$READS_EXT | sed "s/.$READS_EXT//" > $ODR/$readsforgrid.txt
+ls *.$READS_EXT | sed "s/\.$READS_EXT//" > $ODR/$readsforgrid.txt
 else
-cat $LIS | sed "s/.$READS_EXT//" > $ODR/$readsforgrid.txt
+cat $LIS | sed "s/\.$READS_EXT//" > $ODR/$readsforgrid.txt
 fi
 
 for i in `cat $ODR/$readsforgrid.txt`
@@ -515,10 +515,10 @@ fi
 cd $RDR
 readsforgrid=$(echo "reads_$(date +%s)")
 if [ "$LIST" == "false" ]; then
-ls *.$READS_EXT | sed "s/.$READS_EXT//" > $ODR/$readsforgrid.txt
+ls *.$READS_EXT | sed "s/\.$READS_EXT//" > $ODR/$readsforgrid.txt
 
 else
-cat $LIS | sed "s/.$READS_EXT//" > $ODR/$readsforgrid.txt
+cat $LIS | sed "s/\.$READS_EXT//" > $ODR/$readsforgrid.txt
 fi
 
 
