@@ -11,7 +11,7 @@ depth <- read.csv(input1, sep = '\t', header = F)
 colname<-c("Genome","base_cov","prop")
 colnames(depth)<-colname
 cov <- aggregate(prop~Genome,depth,sum)
-cov <- cov[-(nrow(cov)),]
+cov <- cov[- grep("^total$", cov$Genome),]
 cov$prop <- cov$prop - 1
 cov<-cov[which(cov[,2]>cutoff),]
 passed <- cov[,1, drop=FALSE]
