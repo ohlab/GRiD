@@ -15,7 +15,7 @@ while getopts ":hv" opt; do
       exit 0
       ;;
     v )
-      echo "grid v1.2" 
+      echo "grid v1.3" 
       exit 0
       ;;
    \? )
