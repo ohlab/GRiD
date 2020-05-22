@@ -3,6 +3,8 @@ Growth Rate Index (GRiD) measures bacterial growth rate from reference genomes (
 
 Emiola and Oh (2018) "High throughput in situ metagenomic measurement of bacterial replication at ultra-low sequencing coverage." *Nature Communications*  (https://www.nature.com/articles/s41467-018-07240-8).
 
+**<<< If you are interested in subspecies or strain-level growth estimation, see https://github.com/ohlab/SMEG >>>**
+
 GRiD algorithm consists of two modules;
 
 1. < single > - which is applicable for growth analysis involving a single reference genome
